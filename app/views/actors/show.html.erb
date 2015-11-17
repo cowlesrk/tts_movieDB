@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <%= image_tag @actor.image %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @actor.name %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @actor.bio %>
+</p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @actor.genre.name %>
+</p>
+
+<h4>Movies for this Actor:</h4>
+<ul>
+	<% @actor.movies.each do |movie| %>
+		<% if movie.name.presence %>
+			<li><%= link_to movie.name, movie %></li>
+		<% else %>
+			<h5> No movies yet!</h5>
+		<% end %>
+	<% end %>
+</ul>
+
+
+
+<%= link_to 'Edit', edit_actor_path(@actor) %> |
+<%= link_to 'Back', actors_path %>
